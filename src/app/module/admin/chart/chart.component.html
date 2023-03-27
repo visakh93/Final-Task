@@ -1,0 +1,67 @@
+<!-- <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner" id="chart" role="listbox">
+        <div class="carousel-item active"  >
+            <div class=" w-100 d-flex justify-content-center my-3">
+                <app-gauge-chart *ngIf="chartGuage" [chartGuage]="chartGuage"></app-gauge-chart>
+            </div>
+
+        </div>
+        <div class="carousel-item">
+            <div class="w-100 d-flex justify-content-center my-3">
+               
+                <app-bar-chart *ngIf="chartBar" [chartBar]="chartBar"></app-bar-chart>
+           
+    </div>
+        </div>
+        <div class="carousel-item">
+            <div class="w-100 d-flex justify-content-center my-3">
+                <app-doughnut-chart *ngIf="chartDoughnut" [chartDoughnut]="chartDoughnut" ></app-doughnut-chart>
+                
+            </div>   
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div> -->
+<div class="row">
+    <div class="col-md-6">
+        <mat-card class="my-3">
+            <mat-card-header class="flex-d justify-content-between">
+                <mat-card-title class="my-3">Productive Hour</mat-card-title>
+              </mat-card-header>
+            <mat-card-content class="d-flex justify-content-center align-items-center">
+        <app-gauge-chart *ngIf="chartGuage" [chartGuage]="chartGuage"></app-gauge-chart> 
+        </mat-card-content>
+    </mat-card>
+    </div>
+    <div class="col-md-6">
+        <mat-card class="my-3">
+            <mat-card-header class="flex-d justify-content-between">
+                <mat-card-title class="my-3">Current Status</mat-card-title>
+              </mat-card-header>
+            <mat-card-content class="d-flex justify-content-center align-items-center">
+        <app-doughnut-chart *ngIf="chartDoughnut" [chartDoughnut]="chartDoughnut" ></app-doughnut-chart>
+        </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <mat-card class="my-3">
+            <mat-card-header class="flex-d justify-content-between">
+                <mat-card-title class="my-3">Weekly Leave Details </mat-card-title>
+              </mat-card-header>
+            <mat-card-content class="d-flex justify-content-center align-items-center">
+        <app-bar-chart *ngIf="chartBar" [chartBar]="chartBar"></app-bar-chart>
+        </mat-card-content>
+        </mat-card>
+    </div>
+</div>

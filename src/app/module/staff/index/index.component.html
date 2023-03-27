@@ -1,0 +1,222 @@
+<div class="container mt-2">
+
+
+    <!-- ADD NEW WORK MODAL -->
+
+    <div class="modal fade" id="md" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ModalLongTitle">Add Work</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form #addWork="ngForm" (ngSubmit)="addWork.form.valid && OnWorkAdd(addWork);addWork.reset()"
+                        class="d-flex flex-column gap-3">
+
+
+                        <div class="form-outline my-2 rounded-start-0">
+                            <label class="form-label text-dark" for="title">Work title</label>
+                            <input class="form-control form-control-lg rounded-start-0" type="text" #title="ngModel"
+                                name="title" ngModel required>
+                            <label class="form-label text-danger" *ngIf=" title.errors && title.touched">Title
+                                is required</label>
+                        </div>
+                        <div class="form-outline my-2 rounded-start-0">
+                            <label class="form-label text-dark" for="desc">Work description</label>
+
+                            <input type="text" #desc="ngModel" name="desc" ngModel
+                                class="form-control form-control-lg rounded-start-0" required>
+                            <label class="form-label text-danger"
+                                *ngIf="addWork.submitted || desc.errors &&  desc.touched">
+                                Description is required</label>
+
+                        </div>
+
+                        <div class="form-outline my-2 rounded-start-0">
+                            <label class="form-label text-dark" for="priority">Select work priority</label>
+                            <select #priority="ngModel" name="priority"
+                                class="form-select my-2 form-select-lg rounded-start-0 bg-white text-dark"
+                                aria-label="Select work priority" ngModel required>
+                                <option value="important">Important</option>
+                                <option value="urgent">Urgent</option>
+                                <option value="important and urgant">Important and urgent</option>
+                                <option value="neither">Neither</option>
+                            </select>
+                            <label class="form-label text-danger"
+                                *ngIf="addWork.submitted || priority.errors &&  priority.touched">Priority
+                                is required</label>
+                        </div>
+
+                        <div class="form-outline my-2 rounded-start-0">
+                            <label class="form-label text-dark" for="added-date">Added Date</label>
+                            <input type="date" id="approved" class="form-control form-control-lg rounded-start-0"
+                                #approved="ngModel" name="approved" ngModel required />
+                            <label class="form-label text-danger"
+                                *ngIf="addWork.submitted || approved.errors &&  approved.touched">Added date
+                                is required</label>
+                        </div>
+                        <div class="form-outline my-2 rounded-start-0">
+                            <label class="form-label text-dark" for="added-date">Target Date</label>
+                            <input type="date" id="target" class="form-control form-control-lg rounded-start-0"
+                                #target="ngModel" name="target" ngModel required />
+                            <label class="form-label text-danger"
+                                *ngIf="addWork.submitted || target.errors &&  target.touched">Added date
+                                is required</label>
+                        </div>
+
+                        <div class="col">
+                            <button type="submit" class="btn btn-secondary rounded-0"
+                                data-bs-dismiss="modal">Add</button>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger rounded-0" data-bs-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <mat-card class="w-100  h-100">
+                <div *ngIf="userData.image" class="d-flex justify-content-center mt-3">
+                    <img src="./assets/images/{{userData.image}}" class="profile" alt="">
+                </div>
+                <mat-card-header>
+                    <mat-card-title-group class="d-flex justify-content-center">
+                        <mat-card-title>{{userData.name}}</mat-card-title>
+                        <mat-card-subtitle class="text-center text-white">{{userData.role}}</mat-card-subtitle>
+                    </mat-card-title-group>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="col my-2 text-nowrap">
+                        <div class="row py-2">
+                            <div class="col">
+                                <span class="h6">Email </span>
+
+                                <span class="fs-6">: {{userData.email}} </span>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col">
+                                <span class="h6">Age </span>
+
+                                <span class="fs-6">: {{userData.age}} </span>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col">
+                                <span class="h6">Gender </span>
+
+                                <span class="fs-6">: {{userData.gender}} </span>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col">
+                                <span class="h6">Blood Group </span>
+
+                                <span class="fs-6">: {{userData.blood}} </span>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col">
+                                <span class="h6">Mobile </span>
+
+                                <span class="fs-6">: {{userData.mobile}} </span>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col">
+                                <span class="h6">Pincode </span>
+
+                                <span class="fs-6">: {{userData.pin}} </span>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col">
+                                <span class="h6">Leave taken </span>
+
+                                <span class="fs-6">: {{userData.leaveDetails}} </span>
+                            </div>
+                        </div>
+                        <div class="row py-2">
+                            <div class="col">
+                                <span class="h6">Salary </span>
+
+                                <span class="fs-6">: {{userData.payment}} </span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <mat-card-actions class="justify-content-center">
+                        <button mat-raised-button class="bg-success mx-2" (click)="gotoEdit()">Edit Profile</button>
+                        <button mat-raised-button class="bg-success mx-2" (click)="gotoLeaveUpdate()">Apply
+                            leave</button>
+                    </mat-card-actions>
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+        <div class="col-lg-8">
+            <div class="row">
+                <div class="col">
+                    <button type="button" mat-raised-button class="bg-info" data-bs-toggle="modal"
+                        data-bs-target="#md">Add Work</button>
+
+
+                </div>
+            </div>
+            <div class="row" *ngIf="pendingWork">
+                <ng-container *ngFor="let item of pendingWork ;let i = index">
+                    <div class="col-lg-6 my-2">
+                        <mat-card>
+                            <mat-card-header class=" pb-2 border-bottom border-secondary">
+                                <mat-card-title class="h4">{{item.title}}</mat-card-title>
+                                <mat-card-subtitle><span
+                                        [ngClass]="item.priority=='important'? 'bg-info':item.priority=='urgent'?'bg-warning':item.priority=='important and urgant'?'bg-danger':'bg-success'  "
+                                        class="px-2 rounded-3">{{item.priority}}</span></mat-card-subtitle>
+                            </mat-card-header>
+
+                            <mat-card-content class=" my-1  border-bottom border-secondary">
+                                <div class="row my-2 border-bottom border-secondary pb-2">
+                                    <div class="col-12 mb-2 ">
+                                        <span class="h6 text-nowrap">Work description </span>
+                                    </div>
+                                    <div class="col ">
+                                        <span class="fs-6 ps-2">{{item.desc}} </span>
+                                    </div>
+                                </div>
+                                <div class="row my-2">
+                                    <div class="col-5">
+                                        <span class="h6 text-nowrap">Work added date </span>
+                                    </div>
+                                    <div class="col">
+                                        <span class="fs-6">: {{item.approved}} </span>
+                                    </div>
+                                </div>
+                                <div class="row my-2">
+                                    <div class="col-5">
+                                        <span class="h6 text-nowrap">Work target date </span>
+                                    </div>
+                                    <div class="col">
+                                        <span class="fs-6">: {{item.target}} </span>
+                                    </div>
+                                </div>
+
+                            </mat-card-content>
+                            <mat-card-actions>
+                                <button mat-raised-button class="bg-success" (click)="deleteWork(i)">Finished</button>
+                            </mat-card-actions>
+                        </mat-card>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

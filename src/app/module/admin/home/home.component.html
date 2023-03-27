@@ -1,0 +1,142 @@
+<nav class="navbar navbar-expand-lg top px-4">
+  <div class="container">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+      aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarText">
+      <ul class="navbar-nav mb-2 mb-lg-0 d-flex justify-content-end align-items-center">
+        <li class="nav-item dropdown dropstart px-3">
+          <div class="dropdown">
+            <a class="text-white" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa fa-bell position-relative fs-5 mt-2">
+                <span class="position-absolute top-0  translate-middle badge rounded-pill nav-item-icon  bg-danger"
+                  *ngIf="messageList">
+                  <p>{{requestCount}}</p>
+                </span>
+              </i>
+            </a>
+
+            <ul class="dropdown-menu dropdown-container " *ngIf="messageList">
+              <ng-container *ngFor="let item of messageList; let i = index">
+                <li class="row w-100" data-bs-toggle="modal" data-bs-target="#md"
+                  class="py-2 border-bottom border-secondary bg-opacity-10" (click)="selectedItem(i)">
+                  <div class="col d-flex align-items-center gap-1 w-100 cursor-pointer pe-auto">
+                    <img src="./assets/images/images2.jpg" class="adProfile m-2" alt="">
+
+                    <span class="col-9 d-flex flex-column justify-content-center ">
+                      <div class="d-flex  justify-content-between py-1">
+                        <span class="h6 m-0"> {{item.name}}</span>
+                        <span class=" text-muted fs-6 m-0">{{item.role}}</span>
+
+                      </div>
+                      <div class="py-1"> Request for {{item.leaveType}} leave</div>
+                    </span>
+                  </div>
+                </li>
+              </ng-container>
+            </ul>
+          </div>
+        </li>
+
+        <li class="nav-item px-3">
+          <a routerLink="/admin" routerLinkActive="active" class="text-white">
+            <i class="fa fa-home fs-4 mt-2" aria-hidden="true"></i>
+          </a>
+
+        </li>
+
+        <li class="nav-item dropdown px-3">
+          <a class="text-dark" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i><img src="./assets/images/images1.jpg" alt="" class="nav-img"></i>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li>
+              <a class="dropdown-item">My profile</a>
+            </li>
+          
+            <li>
+              <a class="dropdown-item text-dark" routerLink="/login" routerLinkActive="active">Logout</a>
+            </li>
+          </ul>
+        </li>
+
+
+        <li class="nav-item">
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<!-- Notificaion Modal -->
+<div class="modal fade" id="md" tabindex="-1" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title text-dark" id="ModalLongTitle">Notification</h4>
+
+      </div>
+      <div class="modal-body" *ngIf="messgeDetails">
+
+        <div class="row">
+          <div class="col d-flex justify-content-center align-items-center">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="h5 text-secondary">Staff Id </span></td>
+                  <td><span class="h5 text-dark">: {{messgeDetails.userId}}</span></td>
+                </tr>
+                <tr>
+                  <td><span class="h5 text-secondary">Name </span></td>
+                  <td><span class="h5 text-dark">: {{messgeDetails.name}}</span></td>
+                </tr>
+                <tr>
+                  <td><span class="h5 text-secondary">Job role </span></td>
+                  <td><span class="h5 text-dark">: {{messgeDetails.role}}</span></td>
+                </tr>
+                <tr>
+                  <td><span class="h5 text-secondary">Phone : </span></td>
+                  <td><span class="h5 text-dark">: {{messgeDetails.mobile}}</span></td>
+                </tr>
+                <tr>
+                  <td><span class="h5 text-secondary">Leave start </span></td>
+                  <td><span class="h5 text-dark">: {{messgeDetails.leaveStart}}</span></td>
+                </tr>
+                <tr>
+                  <td><span class="h5 text-secondary">Leave end </span></td>
+                  <td><span class="h5 text-dark">: {{messgeDetails.leaveEnd}}</span></td>
+                </tr>
+                <tr>
+                  <td><span class="h5 text-secondary">Absent count </span></td>
+                  <td><span class="h5 text-dark">: {{messgeDetails.leaveCount}}</span></td>
+                </tr>
+                <tr>
+                  <td><span class="h5 text-secondary">Leave type </span></td>
+                  <td><span class="h5 text-dark">: {{messgeDetails.leaveType}}</span></td>
+                </tr>
+                <tr>
+                  <td><span class="h5 text-secondary">Leave reason </span></td>
+                  <td><span class="h5 text-dark">: {{messgeDetails.reason}}</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+          (click)="OnApprovedMsg('reject')">Reject</button>
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal"
+          (click)="OnApprovedMsg('approved')">Approved</button>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

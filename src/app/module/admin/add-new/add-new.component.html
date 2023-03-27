@@ -1,0 +1,309 @@
+<div class="container ">
+  <section>
+    <ng-container *ngIf="employeeForm">
+      <form [formGroup]="employeeForm" (ngSubmit)="onSave(employeeForm)">
+        <div class="row">
+          <div class="col">
+            <mat-card class="w-100">
+              <mat-card-header>
+                <mat-card-title>
+                  <h2>Staff Details</h2>
+                </mat-card-title>
+                <mat-card-subtitle></mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <mat-form-field class="w-100">
+                      <mat-label>Name</mat-label>
+                      <input matInput formControlName="name">
+                      <mat-error
+                        *ngIf="employeeForm.get('name')?.hasError('required') && (employeeForm.get('name')?.dirty || employeeForm.get('name')?.touched)">Name
+                        is required</mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-lg-6">
+                    <mat-form-field class="w-100 ">
+                      <mat-label>Job role</mat-label>
+                      <input type="text" matInput id="role" formControlName="role" />
+                      <mat-error
+                        *ngIf="employeeForm.get('role')?.hasError('required') && (employeeForm.get('role')?.dirty || employeeForm.get('role')?.touched)">Job
+                        role is required</mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <mat-form-field class="w-100">
+                      <mat-label>Age</mat-label>
+                      <input matInput formControlName="age">
+                      <mat-error
+                        *ngIf="employeeForm.get('age')?.hasError('required') && (employeeForm.get('age')?.dirty || employeeForm.get('age')?.touched)">Age
+                        is required</mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-lg-6">
+                    <mat-form-field class="w-100 ">
+                      <mat-label>Gender</mat-label>
+                      <mat-select id="gender" formControlName="gender">
+                        <mat-option value="male">Male</mat-option>
+                        <mat-option value="female">Female</mat-option>
+                        <mat-option value="other">Other</mat-option>
+                      </mat-select>
+                      <mat-error
+                        *ngIf="employeeForm.get('gender')?.hasError('required') && (employeeForm.get('gender')?.dirty || employeeForm.get('gender')?.touched)">Gender
+                        is required</mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <mat-form-field class="w-100 ">
+                      <mat-label>Email</mat-label>
+                      <input type="text" matInput id="email" formControlName="email" />
+                      <mat-error
+                        *ngIf="employeeForm.get('email')?.hasError('required') && (employeeForm.get('email')?.dirty || employeeForm.get('email')?.touched)">Email
+                        is required</mat-error>
+                      <mat-error
+                        *ngIf="employeeForm.get('email')?.hasError('pattern') && (employeeForm.get('email')?.dirty || employeeForm.get('email')?.touched)">Enter
+                        a valid email address</mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-lg-6">
+                    <mat-form-field class="w-100 ">
+                      <mat-label>Date of birth </mat-label>
+                      <input matInput [matDatepicker]="picker" formControlName="dob">
+                      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                      <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+                      <mat-error
+                        *ngIf="employeeForm.get('dob')?.hasError('required') && (employeeForm.get('dob')?.dirty || employeeForm.get('dob')?.touched)">Date
+                        of birth
+                        is required</mat-error>
+                      <!-- <input type="text" matInput id="role" formControlName="role" /> -->
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <mat-form-field class="w-100">
+                      <mat-label>Blood Group</mat-label>
+                      <input matInput type="text" id="blood" formControlName="blood">
+                      <mat-error
+                        *ngIf="employeeForm.get('blood')?.hasError('required') && (employeeForm.get('blood')?.dirty || employeeForm.get('blood')?.touched)">Blood
+                        group
+                        is required</mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-lg-6">
+                    <mat-form-field class="w-100 ">
+                      <mat-label>Pincode</mat-label>
+                      <input type="text" matInput id="pin" formControlName="pin" />
+                      <mat-error class="text-danger"
+                        *ngIf="employeeForm.get('pin')?.hasError('required') && (employeeForm.get('pin')?.dirty || employeeForm.get('pin')?.touched)">Pincode
+                        is required</mat-error>
+                      <mat-error class="text-danger"
+                        *ngIf="employeeForm.get('pin')?.hasError('pattern') && (employeeForm.get('pin')?.dirty || employeeForm.get('pin')?.touched)">Pincode
+                        must be 6 number </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <mat-form-field class="w-100">
+                      <mat-label>Phone</mat-label>
+                      <input matInput type="text" id="mobile" formControlName="mobile">
+                      <mat-error class="text-danger"
+                        *ngIf="employeeForm.get('mobile')?.hasError('required') && (employeeForm.get('mobile')?.dirty || employeeForm.get('mobile')?.touched)">Phone
+                        is required</mat-error>
+                      <mat-error class="text-danger"
+                        *ngIf="employeeForm.get('mobile')?.hasError('pattern') && (employeeForm.get('mobile')?.dirty || employeeForm.get('mobile')?.touched)">
+                        Phone number must be 10 number</mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-lg-6">
+                    <mat-form-field class="w-100">
+                      <mat-label>Password</mat-label>
+                      <input matInput type="text" id="password" formControlName="password">
+                      <mat-error class="text-danger"
+                        *ngIf="employeeForm.get('password')?.hasError('required') && (employeeForm.get('password')?.dirty || employeeForm.get('password')?.touched)">Password
+                        is required</mat-error>
+                      <mat-error class="text-danger"
+                        *ngIf="employeeForm.get('password')?.hasError('pattern') && (employeeForm.get('password')?.dirty || employeeForm.get('password')?.touched)">
+                        Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase
+                        letter and 1 number</mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col">
+                    <button type="button" mat-raised-button (click)="fileInput.click()"
+                      class="bg-info opacity-75">Select Profile</button>
+                    <input hidden (change)="uploadFile($event)" #fileInput type="file">
+                  </div>
+                </div>
+              </mat-card-content>
+
+
+              <mat-card-actions>
+                <div class="w-100 d-flex justify-content-center">
+                  <button mat-raised-button type="submit" class="bg-success text-white px-4 mx-1">Submit</button>
+                  <button type="reset" mat-raised-button (click)="onReset('reset')"
+                    class="bg-danger text-white px-4 mx-1">Reset all</button>
+
+                </div>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+        </div>
+      </form>
+    </ng-container>
+    <div class="row" *ngIf="showData">
+      <div class="col">
+        <mat-card class="w-100">
+          <mat-card-header>
+            <mat-card-title>
+              <h2>Entered details</h2>
+            </mat-card-title>
+            <mat-card-subtitle></mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="row my-3 text-dark table-responsive text-nowrap">
+              <div class="rounded-3">
+                <img src="./assets/images/{{newEmp.image}}" class="profile my-3" alt="">
+              </div>
+              <div class="row">
+                <div class="col">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td scope="row align-items-center ">
+                          <div class="row">
+                            <div class="col-5">
+                              <span class="h6 text-secondary">Job Role </span>
+                            </div>
+                            <div class="col">
+                              <span class="h6 text-white">: {{newEmp.role}}</span>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="row ">
+                            <div class="col-5 ">
+                              <span class="h6 text-secondary">Name </span>
+                            </div>
+                            <div class="col">
+                              <span class="h6 text-white">: {{newEmp.name}}</span>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="row">
+                            <div class="col-5">
+                              <span class="h6 text-secondary">Age </span>
+                            </div>
+                            <div class="col">
+                              <span class="h6 text-white">: {{newEmp.age}}</span>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="row">
+                            <div class="col-5">
+                              <span class="h6 text-secondary">Gender </span>
+                            </div>
+                            <div class="col">
+                              <span class="h6 text-white">: {{newEmp.gender}}</span>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="row ">
+                            <div class="col-5 ">
+                              <span class="h6 text-secondary">Date of birth </span>
+                            </div>
+                            <div class="col">
+                              <span class="h6 text-white">: {{newEmp.dob}}</span>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="row">
+                            <div class="col-5">
+                              <span class="h6 text-secondary">Blood group </span>
+                            </div>
+                            <div class="col">
+                              <span class="h6 text-white">: {{newEmp.blood}}</span>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="row">
+                            <div class="col-5">
+                              <span class="h6 text-secondary">Pincode </span>
+                            </div>
+                            <div class="col">
+                              <span class="h6 text-white">: {{newEmp.pin}}</span>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="row ">
+                            <div class="col-5 ">
+                              <span class="h6 text-secondary">Phone </span>
+                            </div>
+                            <div class="col">
+                              <span class="h6 text-white">: {{newEmp.mobile}}</span>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <div class="row">
+                            <div class="col-5">
+                              <span class="h6 text-secondary">Email </span>
+                            </div>
+                            <div class="col">
+                              <span class="h6 text-white">: {{newEmp.email}}</span>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="row">
+                            <div class="col-5">
+                              <span class="h6 text-secondary">Password </span>
+                            </div>
+                            <div class="col">
+                              <span class="h6 text-white">: {{newEmp.password}}</span>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+          <mat-card-actions>
+            <div class="w-100 d-flex justify-content-center">
+              <button mat-raised-button (click)="onReset('submit')" class="bg-success text-white px-4 mx-2">Submit</button>
+              <button type="reset" mat-raised-button (click)="onReEdit()" class="bg-danger text-white px-4 mx-2">Edit</button>
+
+            </div>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+
+    </div>
+  </section>
+</div>

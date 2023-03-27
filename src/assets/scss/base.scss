@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Amaranth:wght@700&display=swap');
+body{
+    background-color:#222736;
+    color: #fff;
+}
+
+html, body { height: 100%; }
+body { margin: 0;  }
+
+.profile{
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+}
+
+.nav-logo{
+    width: 140px;
+}
+.navbar{
+    z-index: 1;
+    background-color: #242a39;
+    
+}
+.nav-bottom{
+    width: 100%;
+    height: 51px;   
+}
+
+table{
+    td{
+        min-height: 60px;
+        vertical-align: middle;
+    }
+}
+::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: #2a3042 !important;
+}
+.mat-mdc-form-field:not(.mat-form-field-no-animations) .mdc-text-field__input{
+    color:#fff !important
+}
+.mat-mdc-form-field:not(.mat-form-field-no-animations) .mdc-text-field__input{
+    color:#fff !important
+}
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: #2a3042;
+}
+.mdc-text-field:not(.mdc-text-field--disabled) .mdc-floating-label {
+    color: #fff;
+}
+.mat-mdc-select-arrow {
+    color: #fff;
+}
+.mdc-text-field--disabled.mdc-text-field--filled {
+    background-color: #2a3042;
+}
+.mat-datepicker-toggle, .mat-datepicker-content .mat-calendar-next-button, .mat-datepicker-content .mat-calendar-previous-button {
+    color: rgba(243, 242, 242, 0.54);
+}
+.form-select{
+    background-color: #2a3042;
+    color: #fff;
+    &:focus &:active{
+    border-bottom: 1px solid #4646f0 !important;
+
+    }
+}
+
+
+.mat-mdc-card{
+    background: #2a3042 !important;
+}
+ 
+::ng-deep .mdc-text-field:not(.mdc-text-field--disabled) .mdc-floating-label {
+    color: #ffffff99 !important;
+}
+.table>:not(caption)>*>*{
+    border-bottom-width:0px !important;
+}
+
+.mat-mdc-table {
+    background: #2a3042;
+}
+.mdc-data-table__pagination-total, .mdc-data-table__pagination-rows-per-page-label, .mdc-data-table__cell {
+    color: #ffffffde;
+}
+.mdc-data-table__header-cell {
+    color: #fff;
+}
+.mdc-text-field--disabled .mdc-floating-label {
+    color: #ffffff61;
+}
+.mat-mdc-paginator {
+    background: #262c3c;
+    color: #fbfbfbde;
+}
+.mat-mdc-select-value {
+    color: #fbfbfbde;
+}
+.mdc-text-field--disabled .mdc-floating-label {
+    color: #ffffff61;
+}
+
+.red{
+    border: 3px solid #fb4d4d;
+    
+}
+.green{
+    border: 3px solid rgb(117, 241, 136);
+
+}

@@ -1,0 +1,364 @@
+{
+  "employee": [
+    {
+      "id": 1,
+      "role": "Engeener",
+      "name": "visakh",
+      "age": "33",
+      "dob": "09-01-1990",
+      "image": "image8.jpg",
+      "blood": "o+",
+      "gender": "male",
+      "email": "visakh123@gamil.com",
+      "mobile": "8899477499",
+      "password": "Visakh123",
+      "edit": true,
+      "pin": 266307,
+      "payment": 15000,
+      "status": false,
+      "leaveCountByWeek": {
+        "currentWeek": "13",
+        "CurrentWeekLeave": 0,
+        "PreviousWeekLeave": 4
+      },
+      "leaveData": [
+        {
+          "leaveStart": "2023-03-25",
+          "leaveEnd": "2023-03-25",
+          "leaveCount": 4,
+          "leaveType": "medical",
+          "reason": "test1",
+          "approved": true
+        },
+        {
+          "leaveStart": "2023-03-24",
+          "leaveEnd": "2023-03-24",
+          "leaveCount": 3,
+          "leaveType": "vacation",
+          "reason": "test2",
+          "approved": false
+        },
+        {
+          "leaveStart": "2023-03-25",
+          "leaveEnd": "2023-03-25",
+          "leaveCount": 3,
+          "leaveType": "vacation",
+          "reason": "test3",
+          "approved": true
+        }
+      ],
+      "leaveDetails": 113,
+      "work": [
+        {
+          "title": "test8",
+          "desc": "addWork",
+          "priority": "urgent",
+          "approved": "2023-03-23",
+          "target": "2023-03-24",
+          "status": true
+        },
+        {
+          "title": "test8",
+          "desc": "Make a fixed header with at least four menus.",
+          "priority": "important and urgant",
+          "approved": "2023-03-29",
+          "target": "2023-03-31",
+          "status": true
+        },
+        {
+          "title": "test7",
+          "desc": "Add routing for each page.",
+          "priority": "important",
+          "approved": "2023-03-28",
+          "target": "2023-03-31",
+          "status": false,
+          "workId": 2
+        },
+        {
+          "title": "test6",
+          "desc": "add a page with message \"Page not found\" and redirect to this page if an invalid link is entered",
+          "priority": "important and urgant",
+          "approved": "2023-03-23",
+          "target": "2023-03-29",
+          "status": false,
+          "workId": 3
+        },
+        {
+          "title": "test5",
+          "desc": "Make header and footer common for all pages.",
+          "priority": "urgent",
+          "approved": "2023-03-25",
+          "target": "2023-03-31",
+          "status": false,
+          "workId": 4
+        },
+        {
+          "title": "test4",
+          "desc": "Create a user registration form with minimum data",
+          "priority": "neither",
+          "approved": "2023-03-29",
+          "target": "2023-03-30",
+          "status": false,
+          "workId": 5
+        },
+        {
+          "title": "test1",
+          "desc": "Add progress bar",
+          "priority": "important and urgant",
+          "approved": "2023-03-29",
+          "target": "2023-03-30",
+          "status": true,
+          "workId": 6
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "role": "Engeener",
+      "name": "sivan",
+      "age": "33",
+      "dob": "24-01-1990",
+      "image": "image29.jpg",
+      "blood": "o-",
+      "gender": "dsd",
+      "email": "sivan123@gamil.com",
+      "mobile": "8899477499",
+      "password": "Sivan123",
+      "leaveCountByWeek": {
+        "currentWeek": "13",
+        "CurrentWeekLeave": 0,
+        "PreviousWeekLeave": 0
+      },
+      "edit": true,
+      "leaveDetails": 6,
+      "work": [
+        {
+          "title": "test8",
+          "desc": "addWork",
+          "priority": "urgent",
+          "approved": "2023-03-23",
+          "target": "2023-03-24",
+          "status": true
+        },
+        {
+          "title": "test8",
+          "desc": "Make a fixed header with at least four menus.",
+          "priority": "important and urgant",
+          "approved": "2023-03-29",
+          "target": "2023-03-31",
+          "status": true
+        },
+        {
+          "title": "test7",
+          "desc": "Add routing for each page.",
+          "priority": "important",
+          "approved": "2023-03-28",
+          "target": "2023-03-31",
+          "status": false,
+          "workId": 2
+        },
+        {
+          "title": "test6",
+          "desc": "add a page with message \"Page not found\" and redirect to this page if an invalid link is entered",
+          "priority": "important and urgant",
+          "approved": "2023-03-23",
+          "target": "2023-03-29",
+          "status": false,
+          "workId": 3
+        },
+        {
+          "title": "test5",
+          "desc": "Make header and footer common for all pages.",
+          "priority": "urgent",
+          "approved": "2023-03-25",
+          "target": "2023-03-31",
+          "status": false,
+          "workId": 4
+        }
+      ],
+      "leaveData": [
+        {
+          "leaveStart": "2023-03-25",
+          "leaveEnd": "2023-03-25",
+          "leaveCount": 4,
+          "leaveType": "medical",
+          "reason": "test1",
+          "approved": true
+        },
+        {
+          "leaveStart": "2023-03-24",
+          "leaveEnd": "2023-03-24",
+          "leaveCount": 3,
+          "leaveType": "vacation",
+          "reason": "test2",
+          "approved": false
+        },
+        {
+          "leaveStart": "2023-03-25",
+          "leaveEnd": "2023-03-25",
+          "leaveCount": 3,
+          "leaveType": "vacation",
+          "reason": "test3",
+          "approved": true
+        }
+      ],
+      "pin": 266307,
+      "payment": 15000,
+      "status": false
+    },
+    {
+      "id": 3,
+      "role": "Team lead",
+      "name": "kiran",
+      "age": "33",
+      "dob": "16-01-1990",
+      "image": "image20.jpg",
+      "blood": "o+",
+      "gender": "male",
+      "email": "kiran123@gamil.com",
+      "mobile": "8899477499",
+      "password": "Kiran123",
+      "edit": true,
+      "leaveDetails": "7",
+      "leaveData": [],
+      "work": [],
+      "pin": 266307,
+      "payment": 15000,
+      "status": false,
+      "leaveCountByWeek": {
+        "currentWeek": "13",
+        "CurrentWeekLeave": 0,
+        "PreviousWeekLeave": 1
+      }
+    },
+    {
+      "id": 4,
+      "role": "Engeener",
+      "name": "keerthana",
+      "age": "78",
+      "dob": "23-12-2045",
+      "image": "image6.jpg",
+      "blood": "o",
+      "gender": "female",
+      "email": "keerthu@gamil.com",
+      "mobile": "9978678578",
+      "password": "Geethu123",
+      "leaveDetails": 3,
+      "payment": 15000,
+      "leaveData": [],
+      "work": [],
+      "pin": 266307,
+      "status": false,
+      "edit": true,
+      "leaveCountByWeek": {
+        "currentWeek": "13",
+        "CurrentWeekLeave": 0,
+        "PreviousWeekLeave": 2
+      },
+      "leavedetails": "7"
+    },
+    {
+      "id": 5,
+      "role": "Team Lead",
+      "name": "suvya",
+      "age": "29",
+      "dob": "23-12-2045",
+      "image": "image7.jpg",
+      "blood": "ab+",
+      "gender": "female",
+      "email": "suvya123@gamil.com",
+      "mobile": "9988373637",
+      "password": "Guvya123",
+      "pin": 266307,
+      "edit": true,
+      "leaveData": [],
+      "work": [],
+      "leaveDetails": 8,
+      "payment": 15000,
+      "status": false,
+      "leaveCountByWeek": {
+        "currentWeek": "13",
+        "CurrentWeekLeave": 0,
+        "PreviousWeekLeave": 3
+      }
+    },
+    {
+      "name": "Ariya M",
+      "age": "24",
+      "dob": "01-01-1990",
+      "gender": "female",
+      "image": "image24.jpg",
+      "blood": "o-",
+      "role": "Engineer",
+      "email": "ariya@gmail.com",
+      "password": "Ariya123",
+      "mobile": "9847858585",
+      "pin": "456545",
+      "edit": true,
+      "leaveCountByWeek": {
+        "currentWeek": "13",
+        "CurrentWeekLeave": 0,
+        "PreviousWeekLeave": 0
+      },
+      "payment": 10000,
+      "leaveDetails": 0,
+      "work": [],
+      "leaveData": [],
+      "id": 6
+    },
+    {
+      "name": "Arjun",
+      "age": "23",
+      "dob": "18-11-1997",
+      "gender": "male",
+      "image": "image13.jpg",
+      "blood": "ab-",
+      "role": "Team lead",
+      "email": "arjun@gamil.com",
+      "password": "Arjun123",
+      "mobile": "9944334232",
+      "pin": "324233",
+      "edit": true,
+      "leaveCountByWeek": {
+        "currentWeek": "13",
+        "CurrentWeekLeave": 0,
+        "PreviousWeekLeave": 0
+      },
+      "payment": 10000,
+      "leaveDetails": 0,
+      "work": [],
+      "leaveData": [],
+      "id": 7
+    }
+  ],
+  "leaveData": [
+    {
+      "userId": 1,
+      "name": "visakh",
+      "role": "staff",
+      "mobile": "8899477499",
+      "leaveStart": "2023-03-07",
+      "leaveEnd": "2023-03-29",
+      "leaveCount": 23,
+      "leaveType": "sick",
+      "reason": "test1",
+      "approved": false,
+      "rejceted": false,
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "name": "visakh",
+      "role": "staff",
+      "mobile": "8899477499",
+      "leaveStart": "2023-03-28",
+      "leaveEnd": "2023-03-30",
+      "leaveCount": 3,
+      "leaveType": "vacation",
+      "reason": "test1",
+      "approved": false,
+      "rejceted": false,
+      "id": 2
+    }
+  ]
+}

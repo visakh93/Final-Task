@@ -1,0 +1,24 @@
+.nav-item-icon{
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+}
+.nav-img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.adProfile{
+    width: 40px ;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: #0000003d 0px 3px 8px;
+}
+.dropdown-menu {
+    &:hover{
+    cursor: pointer;
+    }
+}
+.dropdown-container{
+    width: 300px;
+}

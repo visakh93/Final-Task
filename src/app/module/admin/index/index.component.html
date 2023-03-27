@@ -1,0 +1,142 @@
+<div class="container">
+    <app-chart></app-chart>
+    <mat-card class="w-100">
+        <mat-card-header>
+            <mat-card-title>
+                <h2>Staff Details</h2>
+            </mat-card-title>
+            <mat-card-subtitle></mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="row  justify-content-between align-items-end ">
+                <div class="col">
+                    <button mat-raised-button class="bg-success my-1" (click)="addNewStaff()">Add Staff</button>
+                    <button mat-raised-button class=" bg-success my-1 ms-3" (click)="goToAllStaff()">All Staff</button>
+                </div>
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col">
+                            <select class="form-select form-select-sm" [(ngModel)]="searchKey">
+                                <option selected>Name</option>
+                                <option value="byId">Id</option>
+                                <option value="byAge">Age</option>
+                                <option value="byGender">Gender</option>
+                                <option value="byBlood">Bloodgroup</option>
+                            </select>
+                        </div>
+
+                        <mat-form-field class="w-100 mt-2">
+                            <mat-label>Search</mat-label>
+                            <input matInput class="w-100" (change)="onSearch()" [(ngModel)]="search" value="Sushi">
+                        </mat-form-field>
+                    </div>
+                </div>
+
+            </div>
+            <div class="mat-elevation-z8 text-nowrap">
+
+                <table mat-table [dataSource]="dataSource" matSort>
+
+                    <ng-container matColumnDef="image">
+                        <th mat-header-cell *matHeaderCellDef>Profile</th>
+                        <td mat-cell name="image" *matCellDef="let item" class="pe-auto" >
+                            <img src="./assets/images/{{item.image}}" class="adProfile "
+                                [ngClass]="item.status? 'green':'red' " alt="" (click)="getRow(item.id)">
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+                        <td mat-cell name="name" *matCellDef="let item" (dblclick)="editBool(item.id,'name')">
+                            <span *ngIf="item.edit || inputArry.get('name')==1"> {{item.name}}</span>
+                            <ng-container *ngIf="!item.edit && inputKey === 'name'">
+                                <input type="text" (change)="editCol(item,$event,'name')" autofocus>
+                            </ng-container>
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="age">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Age</th>
+                        <td mat-cell *matCellDef="let item" (dblclick)="editBool(item.id,'age')">
+                            <span *ngIf="item.edit  ||  inputArry.get('age')==1"> {{item.age}}</span>
+                            <ng-container *ngIf="!item.edit && inputKey==='age'">
+                                <input type="text" (change)="editCol(item,$event,'age')" autofocus>
+                            </ng-container>
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="dob">
+                        <th mat-header-cell *matHeaderCellDef>DATE OF BITRH</th>
+                        <td mat-cell *matCellDef="let item" (dblclick)="editBool(item.id,'dob')">
+                            <span *ngIf="item.edit  || inputArry.get('dob')==1"> {{item.dob}}</span>
+                            <ng-container *ngIf="!item.edit && inputKey==='dob'">
+                                <input type="text" (change)="editCol(item,$event,'dob')" autofocus>
+                            </ng-container>
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="blood">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>bloodGroup</th>
+                        <td mat-cell *matCellDef="let item" (dblclick)="editBool(item.id,'blood')">
+                            <span *ngIf="item.edit  || inputArry.get('blood')==1"> {{item.blood}}</span>
+                            <ng-container *ngIf="!item.edit && inputKey==='blood'">
+                                <input type="text" (change)="editCol(item,$event,'blood')" autofocus>
+                            </ng-container>
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="gender">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Gender</th>
+                        <td mat-cell *matCellDef="let item" (dblclick)="editBool(item.id,'gender')">
+                            <span *ngIf="item.edit  || inputArry.get('gender')==1"> {{item.gender}}</span>
+                            <ng-container *ngIf="!item.edit && inputKey==='gender'">
+                                <input type="text" (change)="editCol(item,$event,'gender')" autofocus>
+                            </ng-container>
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="email">
+                        <th mat-header-cell *matHeaderCellDef>Email</th>
+                        <td mat-cell *matCellDef="let item" (dblclick)="editBool(item.id,'email')">
+                            <span *ngIf="item.edit  || inputArry.get('email')==1"> {{item.email}}</span>
+                            <ng-container *ngIf="!item.edit && inputKey==='email'">
+                                <input type="text" (change)="editCol(item,$event,'email')" autofocus>
+                            </ng-container>
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="mobile">
+                        <th mat-header-cell *matHeaderCellDef>Phone</th>
+                        <td mat-cell *matCellDef="let item" (dblclick)="editBool(item.id,'mobile')">
+                            <span *ngIf="item.edit  || inputArry.get('mobile')==1"> {{item.mobile}}</span>
+                            <ng-container *ngIf="!item.edit && inputKey==='mobile'">
+                                <input type="text" (change)="editCol(item,$event,'mobile')" autofocus>
+                            </ng-container>
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="leaveDetails">
+                        <th mat-header-cell *matHeaderCellDef>Leave Details</th>
+                        <td mat-cell *matCellDef="let item" (dblclick)="editBool(item.id,'leaveDetails')">
+                            <span *ngIf="item.edit  || inputArry.get('leaveDetails')==1"> {{item.leaveDetails}}</span>
+                            <ng-container *ngIf="!item.edit && inputKey==='leaveDetails'">
+                                <input type="text" (change)="editCol(item,$event,'leaveDetails')" autofocus>
+                            </ng-container>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="delete">
+                        <th mat-header-cell *matHeaderCellDef>Action</th>
+                        <td mat-cell *matCellDef="let item" >
+                            <span><button class="btn btn-danger" (click)="delete(item.id,$event)"><i class="fa fa-times" aria-hidden="true"></i></button></span>
+
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns:displayedColumns "> </tr>
+
+                </table>
+                <mat-paginator [pageSizeOptions]="[5 ,10 , 20]" aria-label="Select page of users"></mat-paginator>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

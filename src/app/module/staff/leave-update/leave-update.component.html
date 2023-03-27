@@ -1,0 +1,215 @@
+<div class="container ">
+    <section>
+        <ng-container *ngIf="leaveForm">
+            <form [formGroup]="leaveForm" (ngSubmit)="onSubmit(leaveForm)">
+                <div class="row">
+                    <div class="col">
+                        <mat-card class="w-100">
+                            <mat-card-header>
+                                <mat-card-title>
+                                    <h2>Apply Leave</h2>
+                                </mat-card-title>
+                                <mat-card-subtitle></mat-card-subtitle>
+                            </mat-card-header>
+                            <mat-card-content>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <mat-form-field class="w-100">
+                                            <mat-label>Name</mat-label>
+                                            <input matInput formControlName="name">
+                                            <mat-error
+                                                *ngIf="leaveForm.get('name')?.hasError('required') && (leaveForm.get('name')?.dirty || leaveForm.get('name')?.touched)">Name
+                                                is required</mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <mat-form-field class="w-100">
+                                            <mat-label>Job role</mat-label>
+                                            <input matInput formControlName="role">
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <mat-form-field class="w-100">
+                                            <mat-label>Phone</mat-label>
+                                            <input matInput formControlName="phone">
+                                            <mat-error
+                                                *ngIf="leaveForm.get('phone')?.hasError('required') && (leaveForm.get('phone')?.dirty || leaveForm.get('phone')?.touched)">phone
+                                                is required</mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <mat-form-field class="w-100">
+                                            <mat-label>Leave Type</mat-label>
+                                            <mat-select id="leaveType" formControlName="leaveType">
+                                                <mat-option value="sick">Sick</mat-option>
+                                                <mat-option value="medical">Medical</mat-option>
+                                                <mat-option value="vacation">Vacation</mat-option>
+                                                <mat-option value="other">Other</mat-option>
+                                            </mat-select>
+                                            <mat-error
+                                                *ngIf="leaveForm.get('leaveType')?.hasError('required') && (leaveForm.get('leaveType')?.dirty || leaveForm.get('leaveType')?.touched)">leave
+                                                Type
+                                                is required</mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <mat-form-field class="w-100">
+                                            <mat-label>leave Start</mat-label>
+                                            <input matInput [matDatepicker]="leaveSt" formControlName="leaveStart">
+                                            <mat-hint>MM/DD/YYYY</mat-hint>
+                                            <mat-datepicker-toggle matIconSuffix
+                                                [for]="leaveSt"></mat-datepicker-toggle>
+                                            <mat-datepicker #leaveSt startView="year"
+                                                [startAt]="startDate"></mat-datepicker>
+                                            <mat-error
+                                                *ngIf="leaveForm.get('leaveStart')?.hasError('required') && (leaveForm.get('leaveStart')?.dirty || leaveForm.get('leaveStart')?.touched)">
+                                                leave Start
+                                                is required</mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <mat-form-field class="w-100">
+                                            <mat-label>Leave End</mat-label>
+                                            <input matInput (dateChange)="GetDayCount(leaveForm)"
+                                                [matDatepicker]="leaveEd" formControlName="leaveEnd">
+                                                <mat-hint>MM/DD/YYYY</mat-hint>
+                                            <mat-datepicker-toggle matIconSuffix
+                                                [for]="leaveEd"></mat-datepicker-toggle>
+                                            <mat-datepicker #leaveEd startView="year"
+                                                [startAt]="startDate"></mat-datepicker>
+                                            <mat-error
+                                                *ngIf="leaveForm.get('leaveEnd')?.hasError('required') && (leaveForm.get('leaveEnd')?.dirty || leaveForm.get('leaveEnd')?.touched)">
+                                                leave End
+                                                is required</mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <mat-form-field class="w-100">
+                                            <mat-label>Leave Count</mat-label>
+                                            <input matInput formControlName="leaveCount">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <mat-form-field class="w-100">
+                                            <mat-label>reason</mat-label>
+                                            <input matInput formControlName="reason">
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col d-flex justify-content-center">
+                                        <button mat-raised-button type="submit" class="bg-success px-4 text-white">Submit</button>
+                                    </div>
+                                </div>
+                            </mat-card-content>
+                        </mat-card>
+                    </div>
+                </div>
+            </form>
+        </ng-container>
+    </section>
+
+    <section>
+
+
+
+        <mat-card class="my-3" *ngIf="getUpdate.length>0">
+            <mat-card-header>
+                <mat-card-title class="my-3">Leave History</mat-card-title>
+              </mat-card-header>
+            <mat-card-content>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+            <ng-container matColumnDef="count">
+                <th mat-header-cell *matHeaderCellDef> Sl No </th>
+                <td mat-cell *matCellDef="let element;let i=index"> {{i+1}} </td>
+            </ng-container>
+            <ng-container matColumnDef="leaveType">
+                <th mat-header-cell *matHeaderCellDef> Leave Type </th>
+                <td mat-cell *matCellDef="let element"> {{element.leaveType}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="leaveCount">
+                <th mat-header-cell *matHeaderCellDef> Leave Count </th>
+                <td mat-cell *matCellDef="let element"> {{element.leaveCount}} </td>
+            </ng-container>
+            <ng-container matColumnDef="reason">
+                <th mat-header-cell *matHeaderCellDef> Reason </th>
+                <td mat-cell *matCellDef="let element "> {{element.reason}} </td>
+            </ng-container>
+            <ng-container matColumnDef="leaveStart">
+                <th mat-header-cell *matHeaderCellDef> Leave Start </th>
+                <td mat-cell *matCellDef="let element "> {{element.leaveStart}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="leaveEnd">
+                <th mat-header-cell *matHeaderCellDef> Leave End </th>
+                <td mat-cell *matCellDef="let element"> {{element.leaveEnd}} </td>
+            </ng-container>
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef> Action </th>
+                <td mat-cell *matCellDef="let element"> 
+                    <span *ngIf="element.approved;else reject" class="bg-success py-1 px-2 rounded-3">approved</span>
+                <ng-template #reject> <span class="bg-danger py-1 px-2 rounded-3"> reject</span></ng-template> </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+    </mat-card-content>
+</mat-card>
+    </section>
+    <!-- ------- pending list------------- -->
+
+    <section>
+
+        <mat-card class="my-3">
+            <mat-card-header>
+                <mat-card-title class="my-3">Leave Pending List</mat-card-title>
+              </mat-card-header>
+            <mat-card-content>
+        <table mat-table [dataSource]="leavePedingSource" class="mat-elevation-z8" matSort>
+
+            <ng-container matColumnDef="count">
+                <th mat-header-cell *matHeaderCellDef> Sl No </th>
+                <td mat-cell *matCellDef="let element;let i=index"> {{i+1}} </td>
+            </ng-container>
+            <ng-container matColumnDef="leaveType">
+                <th mat-header-cell *matHeaderCellDef> Leave Type </th>
+                <td mat-cell *matCellDef="let element"> {{element.leaveType}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="leaveCount">
+                <th mat-header-cell *matHeaderCellDef> Leave Count </th>
+                <td mat-cell *matCellDef="let element"> {{element.leaveCount}} </td>
+            </ng-container>
+            <ng-container matColumnDef="reason">
+                <th mat-header-cell *matHeaderCellDef> Reason </th>
+                <td mat-cell *matCellDef="let element "> {{element.reason}} </td>
+            </ng-container>
+            <ng-container matColumnDef="leaveStart">
+                <th mat-header-cell *matHeaderCellDef> Leave Start </th>
+                <td mat-cell *matCellDef="let element "> {{element.leaveStart}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="leaveEnd">
+                <th mat-header-cell *matHeaderCellDef> Leave End </th>
+                <td mat-cell *matCellDef="let element"> {{element.leaveEnd}} </td>
+            </ng-container>
+           
+            
+            <tr mat-header-row *matHeaderRowDef="leavePedingColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: leavePedingColumns;"></tr>
+        </table>
+
+    </mat-card-content>
+</mat-card>
+    </section>
+    
+</div>

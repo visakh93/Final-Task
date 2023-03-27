@@ -1,0 +1,29 @@
+input{
+    border: none;
+    outline: none;
+//   max-width: 100px;
+}
+table {
+    width: 100%;
+    td{
+        cursor: pointer;
+    }
+    // table-layout: fixed;
+  }
+.adProfile{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.red{
+    border: 3px solid #fb4d4d;
+    
+}
+.green{
+    border: 3px solid rgb(117, 241, 136);
+
+}
+mat-form-field{
+    margin-bottom: -1.25em
+}
