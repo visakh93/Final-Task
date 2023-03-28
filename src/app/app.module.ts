@@ -13,6 +13,7 @@ import { NgChartsModule } from 'ng2-charts';
 import { MatInputModule } from "@angular/material/input";
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -40,7 +41,7 @@ import {MatButtonModule} from '@angular/material/button';
   exports:[],
   providers: [{
     provide:HTTP_INTERCEPTORS,useClass:ApiInterceptor,multi:true
-  }],
+  },DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

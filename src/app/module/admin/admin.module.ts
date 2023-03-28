@@ -66,5 +66,6 @@ import{MatProgressBarModule} from '@angular/material/progress-bar';
       MatListModule,
       NgChartsModule,
   ]
-,providers:[DatePipe]})
+
+})
 export class AdminModule { }

@@ -5,8 +5,8 @@
       "role": "Engeener",
       "name": "visakh",
       "age": "33",
-      "dob": "09-01-1990",
-      "image": "image8.jpg",
+      "dob": "02-01-1990",
+      "image": "image30.jpg",
       "blood": "o+",
       "gender": "male",
       "email": "visakh123@gamil.com",
@@ -19,7 +19,7 @@
       "leaveCountByWeek": {
         "currentWeek": "13",
         "CurrentWeekLeave": 0,
-        "PreviousWeekLeave": 4
+        "PreviousWeekLeave": 2
       },
       "leaveData": [
         {
@@ -45,25 +45,26 @@
           "leaveType": "vacation",
           "reason": "test3",
           "approved": true
-        }
-      ],
-      "leaveDetails": 113,
-      "work": [
-        {
-          "title": "test8",
-          "desc": "addWork",
-          "priority": "urgent",
-          "approved": "2023-03-23",
-          "target": "2023-03-24",
-          "status": true
         },
         {
-          "title": "test8",
-          "desc": "Make a fixed header with at least four menus.",
-          "priority": "important and urgant",
-          "approved": "2023-03-29",
-          "target": "2023-03-31",
-          "status": true
+          "leaveStart": "2023-03-07",
+          "leaveEnd": "2023-03-07",
+          "leaveCount": 23,
+          "leaveType": "sick",
+          "reason": "test1",
+          "approved": true
+        }
+      ],
+      "leaveDetails": 136,
+      "work": [
+        {
+          "title": "test7",
+          "desc": "Add progress bar",
+          "priority": "urgent",
+          "approved": "2023-03-23",
+          "target": "2023-03-30",
+          "status": true,
+          "workId": 0
         },
         {
           "title": "test7",
@@ -72,7 +73,7 @@
           "approved": "2023-03-28",
           "target": "2023-03-31",
           "status": false,
-          "workId": 2
+          "workId": 1
         },
         {
           "title": "test6",
@@ -81,7 +82,7 @@
           "approved": "2023-03-23",
           "target": "2023-03-29",
           "status": false,
-          "workId": 3
+          "workId": 2
         },
         {
           "title": "test5",
@@ -90,7 +91,7 @@
           "approved": "2023-03-25",
           "target": "2023-03-31",
           "status": false,
-          "workId": 4
+          "workId": 3
         },
         {
           "title": "test4",
@@ -99,16 +100,7 @@
           "approved": "2023-03-29",
           "target": "2023-03-30",
           "status": false,
-          "workId": 5
-        },
-        {
-          "title": "test1",
-          "desc": "Add progress bar",
-          "priority": "important and urgant",
-          "approved": "2023-03-29",
-          "target": "2023-03-30",
-          "status": true,
-          "workId": 6
+          "workId": 4
         }
       ]
     },
@@ -329,23 +321,33 @@
       "work": [],
       "leaveData": [],
       "id": 7
+    },
+    {
+      "name": "manus",
+      "age": "24",
+      "dob": "11-02-1998",
+      "gender": "male",
+      "image": "image28.jpg",
+      "blood": "o-",
+      "role": "Engineer",
+      "email": "manu@gmail.com",
+      "password": "Manus123",
+      "mobile": "3424234323",
+      "pin": "333333",
+      "edit": true,
+      "leaveCountByWeek": {
+        "currentWeek": "13",
+        "CurrentWeekLeave": 0,
+        "PreviousWeekLeave": 0
+      },
+      "payment": 10000,
+      "leaveDetails": 0,
+      "work": [],
+      "leaveData": [],
+      "id": 8
     }
   ],
   "leaveData": [
-    {
-      "userId": 1,
-      "name": "visakh",
-      "role": "staff",
-      "mobile": "8899477499",
-      "leaveStart": "2023-03-07",
-      "leaveEnd": "2023-03-29",
-      "leaveCount": 23,
-      "leaveType": "sick",
-      "reason": "test1",
-      "approved": false,
-      "rejceted": false,
-      "id": 1
-    },
     {
       "userId": 1,
       "name": "visakh",
@@ -359,6 +361,20 @@
       "approved": false,
       "rejceted": false,
       "id": 2
+    },
+    {
+      "userId": 1,
+      "name": "visakh",
+      "role": "Engeener",
+      "mobile": "8899477499",
+      "leaveStart": "2023-03-28",
+      "leaveEnd": "2023-03-29",
+      "leaveCount": 2,
+      "leaveType": "sick",
+      "reason": "test3",
+      "approved": false,
+      "rejceted": false,
+      "id": 3
     }
   ]
 }

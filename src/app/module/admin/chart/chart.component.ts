@@ -80,7 +80,7 @@ this.apiService.getAllUser().subscribe((response)=>{
     let totelWeekCount = 0;
     if(previousWeek != current_week){
       weeklyUpdate.leaveCountByWeek.currentWeek=current_week;
-      weeklyUpdate.leaveCountByWeek.PreviousWeekLeave += this.userData[i].leaveCountByWeek.CurrentWeekLeave
+      weeklyUpdate.leaveCountByWeek.PreviousWeekLeave = this.userData[i].leaveCountByWeek.CurrentWeekLeave
       weeklyUpdate.leaveCountByWeek.CurrentWeekLeave= 0
     }
 
